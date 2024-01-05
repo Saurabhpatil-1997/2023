@@ -1,4 +1,4 @@
-//Create Date Dimension
+//Create Date Dimension table
 (StartDate as date, EndDate as date)=>
 
 let
