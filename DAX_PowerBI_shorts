@@ -1,9 +1,4 @@
-//DAX Date table
-
-Calendar = CALENDAR(DATE(2020,1,1), DATE(2023,12,31))   ------//from range
-QuarterIndexWithPrefix = "Q" & FORMAT(QUARTER('Calendar'[Date]), "0")
-MonthIndex = MONTH('Calendar'[Date]) -------or-------- MonthAbbreviation = FORMAT('Calendar'[Date], "mmm")
-
+//DAX
 
 //Normal Day to day life function
 1. Calculate the sum of spend money only for female (filter) 
@@ -11,7 +6,13 @@ MonthIndex = MONTH('Calendar'[Date]) -------or-------- MonthAbbreviation = FORMA
 2.manage the surrogates(buckets/bins) : eg age group(teenagers,adult,older)
 
 
-3.
+3. Cumulative total/ running total
+Cumulative freq = CALCULATE(SUM(Sales_Data[Total Revenue]) ,FILTER(ALL(Sales_Data),Sales_Data[Ship Date] <= MAX(Sales_Data[Ship Date])))
 
 //Time Intelligance function
 1.To create a date table 
+
+Calendar = CALENDAR(DATE(2020,1,1), DATE(2023,12,31))   ------//from range
+QuarterIndexWithPrefix = "Q" & FORMAT(QUARTER('Calendar'[Date]), "0")
+MonthIndex = MONTH('Calendar'[Date]) -------or-------- MonthAbbreviation = FORMAT('Calendar'[Date], "mmm")
+
