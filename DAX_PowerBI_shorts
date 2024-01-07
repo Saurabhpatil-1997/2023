@@ -1,7 +1,15 @@
+//DAX Date table
+
+Calendar = CALENDAR(DATE(2020,1,1), DATE(2023,12,31))   ------//from range
+QuarterIndexWithPrefix = "Q" & FORMAT(QUARTER('Calendar'[Date]), "0")
+MonthIndex = MONTH('Calendar'[Date]) -------or-------- MonthAbbreviation = FORMAT('Calendar'[Date], "mmm")
+
+
 //Normal Day to day life function
 1. Calculate the sum of spend money only for female (filter) 
 
 2.manage the surrogates(buckets/bins) : eg age group(teenagers,adult,older)
+
 
 3.
 
