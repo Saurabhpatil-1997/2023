@@ -1,18 +1,25 @@
-//DAX
+-----------------------------------------------------------------//Normal DAX--------------------------------------------------------------------------
+------------------------------------//create an column
+1. crate an additional column for full name adding first name + last name
+Full name = table[firstname] & "-" & table[lastname] 
 
-//Normal Day to day life function
-1. Calculate the sum of spend money only for female (filter) 
+
+1. Calculate the sum of spend money only for female (filter)
+
 
 2.manage the surrogates(buckets/bins) : eg age group(teenagers,adult,older)
 
 
 3. Cumulative total/ running total
-Cumulative freq = CALCULATE(SUM(Sales_Data[Total Revenue]) ,FILTER(ALL(Sales_Data),Sales_Data[Ship Date] <= MAX(Sales_Data[Ship Date])))
+Cumulative freq = CALCULATE(SUM(Sales_Data[Total Revenue]) ,FILTER(ALL(Sales_Data),Sales_Data[Ship Date] <= MAX(Sales_Data[Ship Date]))) ------------------// sum of every previous value
 
-//Time Intelligance function
+4. return the profit : row by row calculation
+Profit = sumx(table,table[salesamount] - table[productamount])
+
+--------------------------------------------------------//Time Intelligance function--------------------------------------------------------------
 1.To create a date table 
 
-Calendar = CALENDAR(DATE(2020,1,1), DATE(2023,12,31))   ------//from range
-QuarterIndexWithPrefix = "Q" & FORMAT(QUARTER('Calendar'[Date]), "0")
-MonthIndex = MONTH('Calendar'[Date]) -------or-------- MonthAbbreviation = FORMAT('Calendar'[Date], "mmm")
-
+Calendar = CALENDAR(DATE(2020,1,1), DATE(2023,12,31))   ------------------//date from range
+QuarterIndexWithPrefix = "Q" & FORMAT(QUARTER('Calendar'[Date]), "0") ---------------//Quarter with Q prefix
+MonthIndex = MONTH('Calendar'[Date]) -------or-------- MonthAbbreviation = FORMAT('Calendar'[Date], "mmm") -------------------// month index
+Year = Year('Calendar'[Date]) -----------------------// year index
