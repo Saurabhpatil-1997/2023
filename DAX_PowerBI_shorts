@@ -3,12 +3,15 @@
 1. crate an additional column for full name adding first name + last name
 Full name = table[firstname] & "-" & table[lastname] 
 
+------------------------------------//create an measure
+1. Calculate the sum of sales only for India (filter)
+India sales = calculate(sum(table[sales]),table[country] = "India") -----------// this will ignore the all filter context and return the India's sales 
 
-1. Calculate the sum of spend money only for female (filter)
-
+//Sum of all the country sales even if applied on slicer/filter it suppose to be static
+Sales = Calculate(sum(table[sales]),All(table[country]))
 
 2.manage the surrogates(buckets/bins) : eg age group(teenagers,adult,older)
-
+IF(age <= 12, "Below 12", IF (age <= 19, "12-19",IF ( age <= 29, "20-29", IF ( age <= 49, "30-49", "Above 50" ) ) ) )
 
 3. Cumulative total/ running total
 Cumulative freq = CALCULATE(SUM(Sales_Data[Total Revenue]) ,FILTER(ALL(Sales_Data),Sales_Data[Ship Date] <= MAX(Sales_Data[Ship Date]))) ------------------// sum of every previous value
